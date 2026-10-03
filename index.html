@@ -1,1 +1,110 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Киров — путевые заметки</title></head><body><p>Подготовка лендинга…</p></body></html>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Киров — путевые заметки</title>
+<meta name="description" content="Неофициальные путевые заметки о поездке в Кировскую область, 28 сентября — 2 октября 2026." />
+<style>
+:root{
+  --paper:#f5f0e8; --paper2:#fffdf8; --ink:#20201f; --muted:#6c665f;
+  --accent:#ba3d32; --line:#d8d0c5; --shadow:0 18px 60px rgba(45,35,25,.10);
+  --serif: Georgia, 'Times New Roman', serif; --sans: Arial, Helvetica, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#d8d2ca}
+body{margin:0;color:var(--ink);font-family:var(--serif);background:linear-gradient(90deg,#d8d2ca 0,#eee9e2 7%,#eee9e2 93%,#d8d2ca 100%)}
+img,.sprite{display:block;width:100%;height:auto}
+.progress{position:fixed;left:0;top:0;height:3px;background:var(--accent);width:0;z-index:99}
+.book{width:min(1180px,100%);margin:0 auto;background:var(--paper);box-shadow:0 0 80px rgba(35,28,20,.15);overflow:hidden}
+.page{position:relative;min-height:90vh;padding:clamp(30px,6vw,88px);border-bottom:1px solid var(--line);background:radial-gradient(circle at 12% 8%,rgba(255,255,255,.8),transparent 22%),var(--paper)}
+.page:after{content:attr(data-page);position:absolute;bottom:18px;right:28px;font:12px/1 var(--sans);letter-spacing:.18em;color:#8d857b}
+.kicker{font:700 11px/1.2 var(--sans);text-transform:uppercase;letter-spacing:.22em;color:var(--accent);margin-bottom:18px}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(58px,11vw,150px);line-height:.82;letter-spacing:-.055em;font-weight:400;margin-bottom:18px}
+h2{font-size:clamp(37px,6vw,76px);line-height:.95;letter-spacing:-.035em;font-weight:400;margin-bottom:22px}
+p{font-size:clamp(18px,2.1vw,27px);line-height:1.45;max-width:760px}
+.small{font:14px/1.55 var(--sans);color:var(--muted);max-width:650px}
+.hand{font:italic 18px/1.4 var(--serif);color:var(--accent);transform:rotate(-1deg)}
+.rule{width:78px;height:2px;background:var(--accent);margin:24px 0}
+.hero{min-height:100svh;padding:0;background:#111;display:grid;grid-template-columns:1fr;align-items:end;color:white;isolation:isolate}
+.hero .photo{position:absolute;inset:0;width:100%;height:100%;z-index:-2;filter:saturate(.9) contrast(1.02)}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.05) 48%,rgba(0,0,0,.72));z-index:-1}
+.hero-copy{padding:clamp(36px,7vw,92px);max-width:1000px}
+.hero h1{margin:0;color:#fff;text-shadow:0 1px 18px rgba(0,0,0,.12)}
+.hero-sub{font:16px/1.45 var(--sans);letter-spacing:.1em;text-transform:uppercase;margin-top:24px;color:rgba(255,255,255,.86)}
+.hero-note{margin-top:38px;font-size:clamp(21px,2.6vw,31px);font-style:italic;max-width:680px}
+.spread{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+.photo-card{background:var(--paper2);padding:10px;box-shadow:var(--shadow);transform:rotate(-.45deg)}
+.photo-card:nth-child(even){transform:rotate(.45deg)}
+.photo-card img,.photo-card .sprite{aspect-ratio:4/5;object-fit:cover}
+.photo-card.wide img,.photo-card.wide .sprite{aspect-ratio:16/10}
+.stamp{display:inline-block;border:1.5px solid var(--accent);padding:8px 11px;border-radius:2px;font:700 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);transform:rotate(-2deg);margin:0 0 18px}
+.quote-page{display:flex;flex-direction:column;justify-content:center;min-height:75vh}
+.quote{font-size:clamp(42px,7.2vw,96px);line-height:.98;letter-spacing:-.045em;max-width:980px}
+.quote em{color:var(--accent);font-weight:400}
+.route{background:#eee8df}
+.route-wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:48px;align-items:center}
+.map-shell{position:relative;background:white;padding:18px;box-shadow:var(--shadow)}
+.map-shell img{width:100%;height:auto;display:block}
+.map-overlay{position:absolute;inset:18px;pointer-events:none}
+.map-overlay svg{width:100%;height:100%;overflow:visible}
+.map-overlay .path{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 0 rgba(255,255,255,.9))}
+.map-overlay .pin circle{fill:var(--accent);stroke:white;stroke-width:3}
+.map-overlay .pin text{font:700 14px var(--sans);fill:#fff;text-anchor:middle;dominant-baseline:middle}
+.route-list{font:18px/1.55 var(--sans);margin:22px 0 0;padding:0;list-style:none}
+.route-list li{padding:11px 0;border-bottom:1px solid var(--line)}
+.big-number{font-size:clamp(70px,9vw,125px);line-height:.9;letter-spacing:-.06em;color:var(--accent)}
+.triptych{display:grid;grid-template-columns:1.25fr .82fr .82fr;gap:14px;align-items:stretch}
+.triptych figure{margin:0;min-height:420px;overflow:hidden;background:#ddd}
+.triptych img,.triptych .sprite{height:100%;object-fit:cover}
+.noski{background:#222;color:#fff;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:clamp(24px,6vw,80px)}
+.noski .photo-card{transform:rotate(1.5deg);max-width:430px;justify-self:center}
+.noski .photo-card img,.noski .photo-card .sprite{aspect-ratio:auto}
+.noski h2{font-size:clamp(68px,12vw,150px);letter-spacing:-.06em;color:#fff;margin-bottom:14px}
+.noski p{color:#ddd}
+.cat-spread{background:#ebe4db}
+.cat-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(18px,4vw,50px);align-items:end}
+.cat-grid .passport img,.cat-grid .passport .sprite,.cat-grid .cat img,.cat-grid .cat .sprite{aspect-ratio:4/5;object-fit:cover}
+.badge{display:inline-flex;gap:10px;align-items:center;border-radius:999px;background:#fff;padding:9px 14px;font:700 12px/1 var(--sans);box-shadow:0 8px 22px rgba(0,0,0,.07);margin-top:14px}
+.badge:before{content:"";width:9px;height:9px;background:var(--accent);border-radius:50%}
+.grid4{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px}
+.grid4 figure{margin:0;background:#fff;padding:9px;box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.grid4 figure:nth-child(1){transform:rotate(-1deg)} .grid4 figure:nth-child(2){transform:rotate(.8deg)} .grid4 figure:nth-child(3){transform:rotate(.6deg)} .grid4 figure:nth-child(4){transform:rotate(-.7deg)}
+.grid4 img,.grid4 .sprite{aspect-ratio:4/3;object-fit:cover}
+.grid4 figcaption{font:13px/1.4 var(--sans);padding:10px 4px 3px;color:var(--muted)}
+.bill{background:#f8f5ef}
+.bill-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(26px,5vw,76px);align-items:center}
+.bill-photo{max-width:620px;justify-self:end;background:white;padding:10px;box-shadow:var(--shadow)}
+.curtains{min-height:72vh;display:grid;grid-template-columns:1fr 1fr;padding:0;background:#ddd}
+.curtains-copy{padding:clamp(36px,6vw,78px);display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
+.curtains-photo{height:100%;min-height:72vh;object-fit:cover}
+.home{min-height:100svh;padding:0;background:#000;color:#fff;display:grid;align-items:end;isolation:isolate}
+.home .photo{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.home:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.75));z-index:-1}
+.home-copy{padding:clamp(38px,7vw,92px)} .home p{color:#eee}
+.colophon{font:11px/1.5 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#b9b3aa;margin-top:44px}
+.sprite{overflow:hidden}.sprite image{pointer-events:none}
+@media(max-width:800px){body{background:var(--paper)}.book{box-shadow:none}.page{min-height:auto;padding:54px 22px 70px}.hero,.home{min-height:92svh}.spread,.route-wrap,.noski,.cat-grid,.bill-wrap,.curtains{grid-template-columns:1fr}.route-wrap{gap:30px}.map-shell{padding:8px}.map-overlay{inset:8px}.triptych{grid-template-columns:1fr 1fr}.triptych figure:first-child{grid-column:1/-1;min-height:360px}.triptych figure{min-height:260px}.grid4{gap:10px}.grid4 figure{padding:6px}.grid4 figcaption{font-size:11px}.curtains{padding:0}.curtains-photo{min-height:58vh;order:-1}.curtains-copy{padding:48px 22px 70px}.photo-card img,.photo-card .sprite{aspect-ratio:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<main class="book">
+<section class="page hero" data-page="01"><svg class="sprite photo" viewBox="0 0 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Вид из самолёта на реку Вятку"><image href="assets/photos.webp" width="1800" height="3000"/></svg><div class="hero-copy"><div class="kicker" style="color:#fff">28 сентября — 2 октября 2026</div><h1>Киров</h1><div class="hero-sub">Путевые заметки</div><div class="hero-note">Всё, что не войдёт в официальный отчёт.</div></div></section>
+<section class="page" data-page="02"><div class="spread"><div><div class="stamp">Прилетели</div><h2>Победилово</h2><p>Мы прилетели в Киров с планом, расписанием и оптимизмом.</p><div class="rule"></div><p class="small">Пока ещё казалось, что программа поездки совершенно реалистична.</p></div><div><div class="photo-card wide"><svg class="sprite" viewBox="450 0 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Аэропорт Победилово"><image href="assets/photos.webp" width="1800" height="3000"/></svg></div><div class="photo-card wide" style="width:72%;margin:-34px 0 0 auto"><svg class="sprite" viewBox="900 0 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Мозаика в аэропорту Кирова"><image href="assets/photos.webp" width="1800" height="3000"/></svg></div></div></div></section>
+<section class="page" data-page="03"><div class="spread"><div class="photo-card"><svg class="sprite" viewBox="1350 0 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Книга с иллюстрациями и названиями песен"><image href="assets/photos.webp" width="1800" height="3000"/></svg></div><div><div class="kicker">Перед дорогой</div><h2>Попытка предсказать будущее</h2><p>На старте нам попался почти гадательный артефакт.</p><p class="small">Он не предупредил о количестве дорог, разговоров и впечатлений, но настроение поймал довольно точно.</p><p class="hand">Программа поездки в символах.</p></div></div></section>
+<section class="page route" data-page="04"><div class="route-wrap"><div class="map-shell"><img src="assets/region-map.webp" alt="Карта Кировской области" /><div class="map-overlay" aria-hidden="true"><svg viewBox="0 0 1024 1304" preserveAspectRatio="none"><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ba3d32"/></marker></defs><path class="path" marker-end="url(#arrow)" d="M468 655 C476 652 484 649 494 646" /><path class="path" marker-end="url(#arrow)" d="M494 646 C484 651 477 654 468 655" /><path class="path" marker-end="url(#arrow)" d="M468 655 C448 710 418 767 379 811 C364 850 354 886 358 910 C315 945 268 972 216 982" /><path class="path" marker-end="url(#arrow)" d="M216 982 C275 889 357 758 468 655" /><path class="path" marker-end="url(#arrow)" d="M468 655 C451 607 430 563 404 527" /><path class="path" marker-end="url(#arrow)" d="M404 527 C427 566 450 610 468 655" /><g class="pin"><circle cx="468" cy="655" r="16"/><text x="468" y="655">К</text></g><g class="pin"><circle cx="494" cy="646" r="11"/><text x="494" y="646">К</text></g><g class="pin"><circle cx="379" cy="811" r="13"/><text x="379" y="811">В</text></g><g class="pin"><circle cx="358" cy="910" r="13"/><text x="358" y="910">С</text></g><g class="pin"><circle cx="216" cy="982" r="13"/><text x="216" y="982">Я</text></g><g class="pin"><circle cx="404" cy="527" r="13"/><text x="404" y="527">М</text></g></svg></div></div><div><div class="kicker">Маршрут</div><div class="big-number">500+</div><p>километров дорог за несколько дней.</p><ul class="route-list"><li>Киров ⇄ Коминтерн</li><li>Киров → Верхошижемье → Советск → Яранск → Киров</li><li>Киров ⇄ Мурыгино</li></ul><p class="small" style="margin-top:18px">Карта — исходная, без перерисовки районов. Красная линия показывает последовательность поездки и не повторяет трассу буквально.</p></div></div></section>
+<section class="page" data-page="05"><div class="kicker">Из окна</div><h2>Большая часть области была увидена так</h2><p>Из окна машины. Между встречами. На ходу. И почему-то именно эти виды потом вспоминаются первыми.</p><div class="triptych" style="margin-top:40px"><figure><svg class="sprite" viewBox="0 1800 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Осенний пейзаж из окна"><image href="assets/photos.webp" width="1800" height="3000"/></svg></figure><figure><svg class="sprite" viewBox="450 1800 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Река из окна"><image href="assets/photos.webp" width="1800" height="3000"/></svg></figure><figure><svg class="sprite" viewBox="900 1800 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Радуга в дороге"><image href="assets/photos.webp" width="1800" height="3000"/></svg></figure></div></section>
+<section class="page noski" data-page="06"><div class="photo-card"><svg class="sprite" viewBox="1350 1200 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Карта с топонимом Носки"><image href="assets/photos.webp" width="1800" height="3000"/></svg></div><div><div class="kicker" style="color:#f1a59c">География тоже старалась</div><h2>НОСКИ</h2><p>Иногда маршрут сам подбрасывает готовые подписи.</p></div></section>
+<section class="page" data-page="07"><div class="spread"><div><div class="kicker">Люди и места</div><h2>Иногда организация начинается со стены</h2><p>По таким деталям пространство начинает говорить само.</p></div><div class="photo-card"><svg class="sprite" viewBox="900 600 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Стена с фотографиями команды Наши дети"><image href="assets/photos.webp" width="1800" height="3000"/></svg></div></div></section>
+<section class="page cat-spread" data-page="08"><div class="kicker">Один из главных сюжетов</div><h2>АДК. Уровень: кот.</h2><p>Нам говорили, что здесь много альтернативной коммуникации. Но вряд ли кто-то ожидал, что коммуникативный паспорт окажется даже у кошки.</p><div class="cat-grid" style="margin-top:38px"><div class="passport"><div class="photo-card"><svg class="sprite" viewBox="1350 600 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Коммуникативный паспорт кошки"><image href="assets/photos.webp" width="1800" height="3000"/></svg></div><div class="badge">доказательство</div></div><div class="cat"><div class="photo-card"><svg class="sprite" viewBox="0 1200 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Кошка, хозяйка коммуникативного паспорта"><image href="assets/photos.webp" width="1800" height="3000"/></svg></div><div class="badge">главный специалист по коммуникации</div></div></div></section>
+<section class="page" data-page="09"><div class="kicker">Случайные находки</div><h2>Вещи, которых не было в чек-листе</h2><div class="grid4"><figure><svg class="sprite" viewBox="0 600 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Большой голубой игрушечный бегемот"><image href="assets/photos.webp" width="1800" height="3000"/></svg><figcaption>Чудо-зверь.</figcaption></figure><figure><svg class="sprite" viewBox="450 600 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Радужные блики на полу"><image href="assets/photos.webp" width="1800" height="3000"/></svg><figcaption>Случайный спецэффект дня.</figcaption></figure><figure><svg class="sprite" viewBox="450 1200 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Беседка и декоративная фигура в саду"><image href="assets/photos.webp" width="1800" height="3000"/></svg><figcaption>Немного тишины между встречами.</figcaption></figure><figure><svg class="sprite" viewBox="900 1200 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Декоративные лошадки"><image href="assets/photos.webp" width="1800" height="3000"/></svg><figcaption>Отдельная рабочая группа.</figcaption></figure></div></section>
+<section class="page bill" data-page="10"><div class="bill-wrap"><div><div class="kicker">Серьёзная пауза</div><h2>Иногда в кадр попадает почти вся суть поездки</h2><p>Среди случайных фотографий вдруг оказываются те, в которых неожиданно концентрируется смысл всей работы.</p></div><div class="bill-photo"><svg class="sprite" viewBox="1350 1800 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Билль о правах на коммуникацию"><image href="assets/photos.webp" width="1800" height="3000"/></svg></div></div></section>
+<section class="page curtains" data-page="11"><div class="curtains-copy"><div class="kicker">Номинация дня</div><h2>Интерьерное решение</h2><p>Некоторые визуальные решения останутся с нами надолго.</p></div><svg class="sprite curtains-photo" viewBox="0 2400 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Шторы в помещении"><image href="assets/photos.webp" width="1800" height="3000"/></svg></section>
+<section class="page quote-page" data-page="12"><div class="kicker">Между строк</div><div class="quote">К вечеру всё увиденное начинало складываться в <em>общую картину.</em><br>А утром мы снова ехали дальше.</div></section>
+<section class="page home" data-page="13"><svg class="sprite photo" viewBox="450 2400 450 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Самолёт Победы ночью"><image href="assets/photos.webp" width="1800" height="3000"/></svg><div class="home-copy"><div class="kicker" style="color:#fff">Последняя страница</div><h2>Домой.</h2><p>Официальные выводы останутся в презентациях, протоколах и рекомендациях.</p><p>А здесь пусть останется сама поездка — дорога, люди, детали, странные находки и всё то, что обычно не помещается в официальный язык.</p><div class="colophon">Кировская область · 2026<br>Киров — Коминтерн — Верхошижемье — Советск — Яранск — Мурыгино — Киров</div></div></section>
+</main>
+<script>const bar=document.getElementById('progress');addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h?scrollY/h*100:0)+'%'},{passive:true});</script>
+</body></html>
