@@ -1,0 +1,1 @@
+This repository uses content.html as the static source for the animated landing wrapper.
