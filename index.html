@@ -1,47 +1,321 @@
-<!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Киров — путевые заметки</title><style>html,body{margin:0;background:#f5f0e8;color:#20201f;font-family:Georgia,serif}.loading{min-height:100vh;display:grid;place-items:center}.loading span{font-size:18px;opacity:.65}</style></head><body><div class="loading"><span>Открываем путевые заметки…</span></div><script>
-(async()=>{const r=await fetch('content.html?v=3',{cache:'no-store'});let h=await r.text();
-const edits=[
-['Всё, что не войдёт в официальный отчёт.','То, что не попало в официальный отчёт.'],
-['Мы прилетели в Киров с планом, расписанием и оптимизмом.',''],
-['Пока ещё казалось, что программа поездки совершенно реалистична.',''],
-['Попытка предсказать будущее','Небольшое гадание перед дорогой'],
-['На старте нам попался почти гадательный артефакт.','Перед выездом попалась книжка, по которой вполне можно было гадать по названиям песен.'],
-['Он не предупредил о количестве дорог, разговоров и впечатлений, но настроение поймал довольно точно.','Прогноз получился туманным, зато некоторые формулировки звучали подозрительно точно.'],
-['Программа поездки в символах.',''],
-['километров дорог за несколько дней.','километров дороги за несколько дней.'],
-['Карта — исходная, без перерисовки районов. Красная линия показывает последовательность поездки и не повторяет трассу буквально.','Карта — исходная. Красная линия показывает порядок поездки, а не точную трассу.'],
-['Большая часть области была увидена так','Кировская область — в основном из окна'],
-['Из окна машины. Между встречами. На ходу. И почему-то именно эти виды потом вспоминаются первыми.','Поля, реки, дождь, солнце — и километры между встречами.'],
-['География тоже старалась','Топонимика поддерживала'],
-['Иногда маршрут сам подбрасывает готовые подписи.','Некоторые названия не нуждаются в комментариях.'],
-['Иногда организация начинается со стены','Команда — буквально на стене'],
-['По таким деталям пространство начинает говорить само.','Хороший способ сразу понять, кто здесь работает.'],
-['Один из главных сюжетов','Отдельная история'],
-['АДК. Уровень: кот.','АДК дошла до кота'],
-['Нам говорили, что здесь много альтернативной коммуникации. Но вряд ли кто-то ожидал, что коммуникативный паспорт окажется даже у кошки.','Коммуникативный паспорт был даже у кошки.'],
-['доказательство','паспорт'],
-['главный специалист по коммуникации','владелица паспорта'],
-['Случайные находки','Между пунктами программы'],
-['Вещи, которых не было в чек-листе','То, чего не было в программе'],
-['Чудо-зверь.','Местная знаменитость.'],
-['Случайный спецэффект дня.','Свет сделал всё сам.'],
-['Немного тишины между встречами.','Пять минут без расписания.'],
-['Отдельная рабочая группа.','Отдельная рабочая группа.'],
-['Серьёзная пауза','Без шуток'],
-['Иногда в кадр попадает почти вся суть поездки','Иногда одной фотографии достаточно'],
-['Среди случайных фотографий вдруг оказываются те, в которых неожиданно концентрируется смысл всей работы.',''],
-['Номинация дня','Без комментариев'],
-['Интерьерное решение','Интерьерное решение дня'],
-['Некоторые визуальные решения останутся с нами надолго.','Оставим это здесь.'],
-['К вечеру всё увиденное начинало складываться в <em>общую картину.</em>','К вечеру заметки становились длиннее, а разговоры — тише.'],
-['К вечеру всё увиденное начинало складываться в\n<em>общую картину.</em>','К вечеру заметки становились длиннее, а разговоры — тише.'],
-['А утром мы снова ехали дальше.','Утром снова ехали дальше.'],
-['Официальные выводы останутся в презентациях, протоколах и рекомендациях.','Официальная часть поездки останется в отчётах, протоколах и рекомендациях.'],
-['А здесь пусть останется сама поездка — дорога, люди, детали, странные находки и всё то, что обычно не помещается в официальный язык.','А здесь — дорога, случайные кадры и то, что запомнилось между встречами.']
-];
-for(const [a,b] of edits)h=h.split(a).join(b);
-const css=`<style id="motion-css">.reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .72s cubic-bezier(.22,.61,.36,1),transform .82s cubic-bezier(.22,.61,.36,1);will-change:opacity,transform}.reveal.from-left{transform:translate3d(-30px,0,0)}.reveal.from-right{transform:translate3d(30px,0,0)}.reveal.scale-in{transform:scale(.965)}.reveal.is-visible{opacity:1;transform:none}.reveal-delay-1{transition-delay:.08s}.reveal-delay-2{transition-delay:.16s}.reveal-delay-3{transition-delay:.24s}.hero .photo,.home .photo{transform:scale(1.035);will-change:transform}.hero.is-visible .photo,.home.is-visible .photo{animation:slowZoom 13s ease-out both}@keyframes slowZoom{from{transform:scale(1.075)}to{transform:scale(1.015)}}.photo-card,.grid4 figure{transition:transform .34s ease,box-shadow .34s ease}.map-overlay .path{stroke-dasharray:1600;stroke-dashoffset:1600}.route.is-visible .map-overlay .path{animation:drawRoute 1.8s cubic-bezier(.2,.72,.22,1) forwards}.route.is-visible .map-overlay .path:nth-of-type(2){animation-delay:.14s}.route.is-visible .map-overlay .path:nth-of-type(3){animation-delay:.28s}.route.is-visible .map-overlay .path:nth-of-type(4){animation-delay:.42s}.route.is-visible .map-overlay .path:nth-of-type(5){animation-delay:.56s}.route.is-visible .map-overlay .path:nth-of-type(6){animation-delay:.70s}@keyframes drawRoute{to{stroke-dashoffset:0}}.pin{opacity:0;transform-box:fill-box;transform-origin:center}.route.is-visible .pin{animation:pinPop .42s ease-out forwards}.route.is-visible .pin:nth-of-type(1){animation-delay:.55s}.route.is-visible .pin:nth-of-type(2){animation-delay:.70s}.route.is-visible .pin:nth-of-type(3){animation-delay:.85s}.route.is-visible .pin:nth-of-type(4){animation-delay:1s}@keyframes pinPop{0%{opacity:0;transform:scale(.6)}75%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}.quote em{display:inline-block}.quote-page.is-visible .quote em{animation:tinyNudge .65s .28s ease-out both}@keyframes tinyNudge{from{transform:translateY(6px);opacity:.2}to{transform:none;opacity:1}}@media(hover:hover) and (pointer:fine) and (min-width:801px){.photo-card:hover{transform:translateY(-5px) rotate(0deg)!important;box-shadow:0 24px 70px rgba(45,35,25,.16)}.grid4 figure:hover{transform:translateY(-4px) rotate(0deg);box-shadow:0 18px 42px rgba(0,0,0,.12)}}@media(max-width:800px){.reveal,.reveal.from-left,.reveal.from-right,.reveal.scale-in{transform:translate3d(0,18px,0);transition-duration:.58s,.66s}.hero .photo,.home .photo{transform:scale(1.02)}.hero.is-visible .photo,.home.is-visible .photo{animation:slowZoomMobile 10s ease-out both}@keyframes slowZoomMobile{from{transform:scale(1.045)}to{transform:scale(1.01)}}.route.is-visible .map-overlay .path{animation-duration:1.35s}}@media(prefers-reduced-motion:reduce){.reveal,.reveal.from-left,.reveal.from-right,.reveal.scale-in{opacity:1!important;transform:none!important;transition:none!important}.hero.is-visible .photo,.home.is-visible .photo,.route.is-visible .map-overlay .path,.route.is-visible .pin,.quote-page.is-visible .quote em{animation:none!important}.map-overlay .path{stroke-dasharray:none;stroke-dashoffset:0}.pin{opacity:1}.photo-card,.grid4 figure{transition:none}}</style>`;
-const js=`<script id="motion-js">(()=>{const motionOK=!matchMedia('(prefers-reduced-motion: reduce)').matches;const pages=[...document.querySelectorAll('.page')];pages.forEach((page,i)=>{page.classList.add('reveal');if(page.classList.contains('hero')||page.classList.contains('home')||page.classList.contains('route'))page.classList.add('scale-in');else if(i%3===1)page.classList.add('from-left');else if(i%3===2)page.classList.add('from-right')});document.querySelectorAll('.photo-card,.grid4 figure,.triptych figure').forEach((el,i)=>{el.classList.add('reveal','reveal-delay-'+((i%3)+1))});if('IntersectionObserver'in window&&motionOK){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));document.querySelector('.hero')?.classList.add('is-visible')})();<\/script>`;
-h=h.replace('</head>',css+'</head>').replace('</body>',js+'</body>');document.open();document.write(h);document.close()})().catch(()=>{document.body.innerHTML='<div class="loading"><span>Не удалось открыть страницу. Обновите её ещё раз.</span></div>'});
-</script></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Таблица → книга-гармошка</title>
+<script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+<style>
+:root{--bg:#F8F8F8;--ink:#2A2A2A;--mut:#626261;--line:#dedede;--card:#fff;--pink:#E5004F;--blue:#019BAB;--blue80:#5BBEC9;--blue20:#C7E9ED;--yellow:#FFD602;--green:#04A634}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.5 Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;padding:32px 16px 64px}
+main{max-width:760px;margin:0 auto}
+h1{font:600 clamp(30px,6vw,44px)/1.1 Montserrat,system-ui,sans-serif;letter-spacing:-.01em}
+.lead{color:var(--mut);font-weight:300;font-size:17px;margin:12px 0 24px;max-width:56ch}
+.fold{display:block;width:100%;height:34px;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:16px}
+.drop{display:block;border:2px dashed var(--line);border-radius:8px;padding:34px 16px;text-align:center;cursor:pointer;transition:.15s}
+.drop:hover,.drop.on{border-color:var(--blue);background:#EEF9FA}
+.drop b{display:block;font-size:18px;font-weight:600}.drop span{color:var(--mut);font-size:14px}
+.drop.ok{border-style:solid;border-color:var(--green);background:#F0FAF3}
+input[type=file]{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+label.f{display:block;font-size:13px;color:var(--mut)}
+label.f input,label.f select{display:block;width:100%;margin-top:4px;padding:9px 10px;font:inherit;color:var(--ink);border:1px solid var(--line);border-radius:6px;background:#fff}
+label.f input:focus,label.f select:focus{outline:2px solid var(--blue80);border-color:var(--blue)}
+label.f small{display:block;margin-top:3px;font-size:12px}
+h2{font-size:20px;font-weight:600;color:var(--ink);margin-bottom:14px}
+button{font:600 16px Montserrat,system-ui,sans-serif;width:100%;padding:14px;border:0;border-radius:8px;background:var(--blue);color:#fff;cursor:pointer}
+button:hover:not(:disabled){background:var(--ink)}button:disabled{opacity:.35;cursor:not-allowed}
+.res{display:none}.res.on{display:block}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 18px}
+.stat{flex:1;min-width:120px;padding:12px;background:#EAF7F9;border-radius:8px}
+.stat b{display:block;font:600 26px Montserrat,sans-serif;color:var(--blue)}.stat span{font-size:13px;color:var(--mut)}
+ol{padding-left:20px;color:var(--ink)}li{margin:4px 0}
+.err{display:none;background:#FDE6EE;color:#B0003B;border-radius:8px;padding:12px 14px;margin-bottom:16px}.err.on{display:block}
+a.dl{display:block;text-align:center;text-decoration:none;font-weight:600;color:var(--ink);border:2px solid var(--ink);padding:12px;border-radius:8px;margin-bottom:18px}
+a.dl:hover{background:var(--ink);color:#fff}
+#book{display:none}
+.sh{break-after:page;page-break-after:always;color:#000;font-family:Arial,Helvetica,"Liberation Sans",sans-serif;hyphens:auto;-webkit-hyphens:auto}
+.sh:last-child{break-after:auto;page-break-after:auto}
+.sh table{table-layout:fixed;border-collapse:collapse}
+.sh td{border:.3mm solid #000;padding:.8mm 1.3mm;text-align:left;vertical-align:middle;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.25;color:#000}
+.sh .n td{font:700 14pt Arial,sans-serif;text-align:center;background:#C7E9ED;border-bottom:.6mm solid #000;white-space:nowrap}
+.sh{position:relative}
+.ft{position:absolute;bottom:0;left:0;right:0;font-size:8pt;text-align:center}
+button.pr{margin-bottom:10px}
+.hint{font-size:13px;color:var(--mut);margin:-4px 0 18px}
+@media print{body{background:#fff;padding:0}main{display:none}#book{display:block}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<style id="pg"></style>
+</head>
+<body>
+<main>
+<h1>Таблица → книга-гармошка</h1>
+<p class="lead">Загрузите Excel-файл — получите документ, готовый к печати: одинаковые столбцы, высота строк по тексту, строка с номерами столбцов на каждой гармошке и линии сгиба.</p>
+<svg class="fold" viewBox="0 0 700 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 28 L100 6 L200 28 L300 6 L400 28 L500 6 L600 28 L700 6" fill="none" stroke="#E5004F" stroke-width="2.5" stroke-linejoin="round"/></svg>
+
+<div class="card">
+<label class="drop" id="drop"><input type="file" id="file" accept=".xlsx"><b id="fname">Выберите файл .xlsx</b><span>или перетащите его сюда · файл не покидает ваш компьютер</span></label>
+</div>
+
+<div class="card">
+<h2>Параметры</h2>
+<div class="grid">
+<label class="f">Ширина столбцов, символов<input id="w" type="number" min="6" max="60" value="18"><small id="wh"></small></label>
+<label class="f">Левое поле (переплёт), мм<input id="bind" type="number" min="3" max="40" value="15"><small>на всех листах гармошки</small></label>
+<label class="f">Остальные поля, мм<input id="mar" type="number" min="3" max="25" value="5"><small>снизу ещё место под название гармошки</small></label>
+<label class="f">Размер шрифта, пт<input id="fs" type="number" min="0" max="24" value="10"><small>10 — удобно читать; 0 — как в исходном файле</small></label>
+<label class="f">Бумага<select id="paper"><option value="A4">A4</option><option value="A3">A3</option><option value="Letter">Letter</option></select></label>
+<label class="f">Ориентация<select id="orient"><option value="landscape">Альбомная</option><option value="portrait">Книжная</option></select></label>
+</div>
+</div>
+
+<div class="err" id="err"></div>
+<button id="go" disabled>Подготовить к печати</button>
+
+<div class="card res" id="res" style="margin-top:16px">
+<h2>Готово</h2>
+<div class="stats" id="stats"></div>
+<p id="note" style="display:none;background:#FFF6C2;border-left:4px solid var(--yellow);border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:14px"></p>
+<button class="pr" id="pr" type="button">Распечатать всю книгу</button>
+<p class="hint">В окне печати: масштаб 100%, поля «По умолчанию», включите «Фоновая графика» (иначе не напечатается голубая строка с номерами). Двустороннюю печать не включайте.</p>
+<a class="dl" id="dl" href="#">Или скачать файл Excel</a>
+<h2>Как собрать</h2>
+<ol id="how"></ol>
+</div>
+</main>
+<div id="book"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const PAPER={A4:[9,210,297],A3:[8,297,420],Letter:[1,215.9,279.4]};
+const MARG=0.4, MM=25.4, RED='FFE5004F';
+const px=w=>Math.trunc(w*7+5), mm=p=>p*MM/96;
+const letters=n=>{let s='';for(;n>0;n=Math.floor((n-1)/26))s=String.fromCharCode(65+(n-1)%26)+s;return s};
+
+function val(v){return v&&typeof v==='object'&&!(v instanceof Date)&&('result' in v||'formula' in v||'sharedFormula' in v)?(v.result??null):v}
+function txt(v){
+  if(v==null)return '';
+  if(v instanceof Date)return '00.00.0000';
+  if(typeof v==='object')return v.richText?v.richText.map(r=>r.text).join(''):v.text!=null?String(v.text):'';
+  return String(v);
+}
+// Оценка числа строк текста при переносе по словам (с запасом ~6%)
+function lines(t,wch,fs){
+  const W=px(wch)-8,k=fs/11*1.05,sp=3.6*k;
+  const cw=c=>/[ilI.,:;!()\/|'"«»\-]/.test(c)?3.6:/[шщжюыфмШЩЖЮЫФМ]/.test(c)?9.2:/[A-ZА-ЯЁ]/.test(c)?8:/\d/.test(c)?7:6.3;
+  let n=0;
+  for(const p of t.split(/\r?\n/)){
+    let cur=0,l=1;
+    for(const w of p.split(' ')){
+      const ww=[...w].reduce((a,c)=>a+cw(c)*k,0);
+      if(cur&&cur+sp+ww>W){l++;cur=0}
+      if(ww>W){l+=Math.floor(ww/W);cur=ww%W}else cur+=(cur?sp:0)+ww;
+    }
+    n+=l;
+  }
+  return n;
+}
+
+async function build(buf,o){
+  const src=new ExcelJS.Workbook();await src.xlsx.load(buf);
+  const ws=src.worksheets[0];if(!ws)throw new Error('В файле нет листов');
+  const R=ws.rowCount,C=ws.columnCount;
+  // Столбцов-подписей: задано вручную или самый широкий из первых трёх (в нём обычно названия строк)
+  let L=o.lab;
+  if(!L){L=1;let bw=0;for(let c=1;c<=Math.min(3,C-1);c++){const w=ws.getColumn(c).width||8.43;if(w>bw+0.5){bw=w;L=c}}}
+  // Строка наименований: первая из верхних, где в подписях встречается «Наименование» (иначе — первая); под ней вставляется строка номеров
+  let H=1;for(let r=1;r<=Math.min(8,R);r++){let t='';for(let c=1;c<=L;c++)t+=' '+txt(val(ws.getCell(r,c).value));if(/(^|\s)наименован/i.test(t)){H=r;break}}
+  if(C<=L)throw new Error('В таблице всего '+C+' столб., а слева зарезервировано '+L);
+  // Объединённые ячейки не переносим (на сгибах они рвутся): текст в первой ячейке, заливка — по всей ширине
+  const master={};
+  for(const m of ws.model.merges||[]){
+    const [a,b]=m.split(':').map(x=>ws.getCell(x));
+    for(let r=a.row;r<=b.row;r++)for(let c=a.col;c<=b.col;c++)if(r!==a.row||c!==a.col)master[r+','+c]=[a.row,a.col];
+  }
+
+  const fsOf=sc=>o.fs||(sc.font&&sc.font.size)||11;
+  const wid=c=>c<=L?(ws.getColumn(c).width||8.43):o.w;
+  let widened=null;
+
+  // Параметры страницы. Подписи (левые столбцы) только на первом листе гармошки
+  const [pcode,w0,h0]=PAPER[o.paper];
+  const pw=o.orient==='landscape'?h0:w0, ph=o.orient==='landscape'?w0:h0, mg=o.mar,ml=o.bind,mb=Math.max(mg,9);
+  let labPx=0;for(let c=1;c<=L;c++)labPx+=px(wid(c));
+  const cwm=mm(px(o.w))*1.02;
+  const pad=ml,spw=(pad*96/MM-5)/7;   // пустое поле перед линией сгиба = поле переплёта
+  const K1=Math.max(1,Math.floor((pw-ml-mg-mm(labPx)-4-pad)/cwm));
+  const K2=Math.max(1,Math.floor((pw-ml-mg-4-pad)/cwm));
+  const ends=[];let e=Math.min(C,L+K1);ends.push(e);
+  while(e<C){e=Math.min(C,e+K2);ends.push(e)}
+  const cb=ends.slice(0,-1);
+  const secFor=w=>{const cw=mm(px(w))*1.02,a=Math.max(1,Math.floor((pw-ml-mg-mm(labPx)-4-pad)/cw)),b=Math.max(1,Math.floor((pw-ml-mg-4-pad)/cw));return 1+Math.max(0,Math.ceil((C-L-a)/b))};
+  let tip=null;for(let w=o.w-1;w>=Math.max(6,o.w-6)&&!tip;w--)if(secFor(w)<ends.length)tip={w,sections:secFor(w)};
+
+  // Высоты строк по содержимому
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const disp=v=>v instanceof Date?v.toLocaleDateString('ru-RU',{timeZone:'UTC'}):txt(v);
+  const fillOf=sc=>{const a=sc.fill&&sc.fill.pattern==='solid'&&sc.fill.fgColor&&sc.fill.fgColor.argb;return a&&/^[0-9A-F]{8}$/i.test(a)?'#'+a.slice(2):''};
+  const cellHtml=(r,c,extra)=>{
+    const m=master[r+','+c],sc=m?ws.getCell(m[0],m[1]):ws.getCell(r,c),f=fillOf(sc);
+    return `<td style="font-size:${fsOf(sc)}pt;${sc.font&&sc.font.bold?'font-weight:700;':''}${f?'background:'+f+';':''}${extra||''}">${m?'':esc(disp(val(sc.value)))}</td>`;
+  };
+  const hs=[],ih=[];
+  for(let r=1;r<=R;r++){
+    let lns=1,fsMax=11,hdr=false;
+    for(let c=1;c<=C;c++){
+      const m=master[r+','+c];if(m)hdr=true;
+      const sc=m?ws.getCell(m[0],m[1]):ws.getCell(r,c),fs=fsOf(sc);fsMax=Math.max(fsMax,fs);
+      if(!m){const t=txt(val(sc.value));if(t)lns=Math.max(lns,lines(t,wid(c),fs))}
+    }
+    ih[r]=hdr;hs[r]=Math.min(409,Math.max(15,Math.ceil(lns*fsMax*1.3+4)));
+  }
+
+  // Точная высота строк: измеряем в браузере (как при печати), самая высокая ячейка строки определяет высоту
+  if(typeof document!=='undefined'){
+    const box=document.createElement('div');box.className='sh';box.style.cssText='position:absolute;left:-99999px;top:0;visibility:hidden';
+    let t='',tw=0;const cg=[];
+    for(let c=1;c<=C;c++){const w=mm(px(wid(c)));tw+=w;cg.push(`<col style="width:${w.toFixed(2)}mm">`)}
+    t=`<table style="width:${tw.toFixed(2)}mm"><colgroup>${cg.join('')}</colgroup>`;
+    for(let r=1;r<=R;r++){t+='<tr>';for(let c=1;c<=C;c++)t+=cellHtml(r,c);t+='</tr>'}
+    box.innerHTML=t+'</table>';document.body.appendChild(box);
+    [...box.querySelectorAll('tr')].forEach((tr,i)=>{hs[i+1]=Math.ceil(tr.getBoundingClientRect().height*0.75)+1});
+    box.remove();
+  }
+
+  // Предупреждение: строка выше 409 пт (предел Excel и почти целая страница) — текст в печати не поместится
+  {const cand=[];
+   for(let r=1;r<=R;r++)if(hs[r]>409){let best=null;for(let c=L+1;c<=C;c++){const sc=ws.getCell(r,c),t=master[r+','+c]?'':txt(val(sc.value));if(!best||t.length>best[0].length)best=[t,fsOf(sc),sc.address]}if(best&&best[0])cand.push(best)}
+   if(cand.length){let need=o.w;while(need<60&&!cand.every(([t,fs])=>lines(t,need,fs)*fs*1.3+4<=409))need++;widened={need,cells:cand.map(x=>x[2]).slice(0,4)}}}
+
+  // Разбиение на гармошки: каждая — полоса строк, которая целиком влезает на один лист по высоте
+  const hmm=p=>p*0.3528,tH=hmm(22),availH=(ph-mg-mb)*0.94-4;
+  const bands=[];let cur=[],acc=H===0?tH:0;
+  for(let r=1;r<=R;r++){
+    const hh=hmm(hs[r]);
+    if(cur.length&&acc+hh>availH){
+      let mv=[];if(ih[r-1]&&cur.length>1)mv=[cur.pop()];   // заголовок раздела не оставляем внизу
+      bands.push(cur);cur=mv;acc=tH+mv.reduce((a,x)=>a+hmm(hs[x]),0);
+    }
+    cur.push(r);acc+=hh;if(r===H)acc+=tH;
+  }
+  bands.push(cur);
+
+  // Версия для печати прямо из браузера: те же листы в HTML
+  const blocks=ends.map((e,k)=>[k?ends[k-1]+1:1,e]);
+  const fold0=k=>k<ends.length-1;
+  const sp=k=>fold0(k)?'<td style="border:0;background:#fff;border-right:.8mm solid #E5004F"></td>':'';
+  let book='';
+  bands.forEach((rows,bi)=>{
+    const after=H>0&&rows.includes(H)?H:0;
+    blocks.forEach(([s0,e0],k)=>{
+      const cols=[];for(let c=s0;c<=e0;c++)cols.push(c);
+      const tw=cols.reduce((a,c)=>a+mm(px(wid(c))),0)+(fold0(k)?pad:0);
+      const td=(c,inner,st)=>`<td style="${st}">${inner}</td>`;
+      const num=()=>'<tr class="n" style="height:22pt">'+cols.map(c=>td(c,c>L?c-L:c===L?'№ столбца':'','')).join('')+sp(k)+'</tr>';
+      let t=`<table style="width:${tw.toFixed(2)}mm"><colgroup>`+cols.map(c=>`<col style="width:${mm(px(wid(c))).toFixed(2)}mm">`).join('')+(fold0(k)?`<col style="width:${pad}mm">`:'')+'</colgroup>';
+      if(after===0)t+=num();
+      rows.forEach(r=>{
+        t+=`<tr style="height:${hs[r]}pt">`+cols.map(c=>cellHtml(r,c)).join('')+sp(k)+'</tr>';
+        if(r===after)t+=num();
+      });
+      book+=`<section class="sh" style="height:${(ph-mg-mb-1).toFixed(1)}mm">${t}</table><div class="ft">Гармошка ${bi+1} из ${bands.length} · лист ${k+1} из ${blocks.length}</div></section>`;
+    });
+  });
+
+  const out=new ExcelJS.Workbook();
+  const oc=c=>c+cb.filter(e=>e<c).length;   // столбец в Excel с учётом пустых столбцов перед сгибами
+  const numRow=(s,n)=>{
+    const row=s.getRow(n);row.height=22;
+    for(let c=1;c<=C;c++){
+      const cell=row.getCell(oc(c));
+      if(c>L)cell.value=c-L;else if(c===L)cell.value='№ столбца';
+      cell.font={name:'Arial',bold:true,size:c>L?12:9};
+      cell.alignment={horizontal:'center',vertical:'middle'};
+      cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFC7E9ED'}};
+      cell.border={top:{style:'thin'},bottom:{style:'medium'},left:{style:'thin'},right:{style:'thin'}};
+    }
+  };
+  const copyRow=(s,r,n)=>{
+    const row=s.getRow(n);   // высота не задаётся: Excel подбирает её сам по тексту
+    for(let c=1;c<=C;c++){
+      const m=master[r+','+c],sc=m?ws.getCell(m[0],m[1]):ws.getCell(r,c),nc=row.getCell(oc(c));
+      if(!m)nc.value=val(sc.value);
+      nc.style=JSON.parse(JSON.stringify(sc.style||{}));
+      nc.font={...(nc.font||{}),size:fsOf(sc)};
+      nc.alignment={...(nc.alignment||{}),horizontal:'left',wrapText:true,vertical:(nc.alignment&&nc.alignment.vertical)||'middle'};
+    }
+  };
+
+  bands.forEach((rows,bi)=>{
+    const s=out.addWorksheet('Гармошка '+(bi+1));
+    for(let c=1;c<=C;c++)s.getColumn(oc(c)).width=wid(c);
+    cb.forEach((e,k)=>{s.getColumn(e+k+1).width=spw});
+    const after=H>0&&rows.includes(H)?H:0;   // строка номеров идёт под строкой наименований, иначе — вверху
+    let n=1;if(after===0)numRow(s,n++);
+    rows.forEach(r=>{copyRow(s,r,n++);if(r===after)numRow(s,n++)});
+    cb.forEach((e,k)=>{for(let r=1;r<n;r++){const cell=s.getRow(r).getCell(e+k+1);cell.border={right:{style:'medium',color:{argb:RED}}}}});
+    s.pageSetup={paperSize:pcode,orientation:o.orient,scale:100,fitToPage:false,
+      printOrder:'overThenDown',
+      margins:{left:ml/MM,right:mg/MM,top:mg/MM,bottom:mb/MM,header:0,footer:.08}};
+    s.headerFooter.oddFooter='&C&8&A';
+  });
+
+  // ExcelJS не умеет вертикальные разрывы страниц — дописываем их в XML каждого листа
+  const zip=await JSZip.loadAsync(await out.xlsx.writeBuffer());
+  if(cb.length){
+    const tag='<colBreaks count="'+cb.length+'" manualBreakCount="'+cb.length+'">'+cb.map((e,k)=>'<brk id="'+(e+k+1)+'" max="1048575" man="1"/>').join('')+'</colBreaks>';
+    for(let i=1;i<=bands.length;i++){
+      const f='xl/worksheets/sheet'+i+'.xml';let xml=await zip.file(f).async('string');
+      const m=[/<\/headerFooter>/,/<pageSetup[^>]*\/>/,/<pageMargins[^>]*\/>/].map(r=>xml.match(r)).find(Boolean);
+      if(!m)throw new Error('не удалось добавить разрывы страниц');
+      zip.file(f,xml.replace(m[0],m[0]+tag));
+    }
+  }
+  const data=await zip.generateAsync({type:'uint8array',compression:'DEFLATE'});
+  return {tip,html:book,pg:`@page{size:${o.paper} ${o.orient};margin:${mg}mm ${mg}mm ${mb}mm ${ml}mm}`,data,widened,L,K1,K2,sections:ends.length,bands:bands.length,pages:ends.length*bands.length};
+}
+
+let buf=null,name='',last=null,fname='';
+$('pr').onclick=()=>{if(!last)return;$('book').innerHTML=last.html;$('pg').textContent=last.pg;const t=document.title;document.title=fname;window.onafterprint=()=>{document.title=t};setTimeout(()=>window.print(),50)};
+function setFile(f){
+  if(!f)return;
+  if(!/\.xlsx$/i.test(f.name)){showErr('Нужен файл формата .xlsx');return}
+  name=f.name.replace(/\.xlsx$/i,'');$('fname').textContent=f.name;$('drop').classList.add('ok');
+  f.arrayBuffer().then(b=>{buf=b;$('go').disabled=false;showErr('')});
+}
+function showErr(m){const e=$('err');e.textContent=m;e.classList.toggle('on',!!m)}
+const wh=()=>{const w=+$('w').value||18;$('wh').textContent=`≈ ${(px(w)*25.4/96).toFixed(0)} мм: столько цифр помещается в строку столбца. Ширина одинакова у всех столбцов, кроме подписей слева`};
+$('w').oninput=wh;wh();
+$('file').onchange=e=>setFile(e.target.files[0]);
+const dz=$('drop');
+['dragenter','dragover'].forEach(t=>dz.addEventListener(t,e=>{e.preventDefault();dz.classList.add('on')}));
+['dragleave','drop'].forEach(t=>dz.addEventListener(t,e=>{e.preventDefault();dz.classList.remove('on')}));
+dz.addEventListener('drop',e=>setFile(e.dataTransfer.files[0]));
+
+$('go').onclick=async()=>{
+  const b=$('go');b.disabled=true;b.textContent='Обработка…';showErr('');$('res').classList.remove('on');
+  try{
+    const o={w:+$('w').value||18,bind:Math.min(40,Math.max(3,+$('bind').value||15)),mar:Math.min(25,Math.max(3,+$('mar').value||5)),fs:+$('fs').value>=0&&$('fs').value!==''?+$('fs').value:10,paper:$('paper').value,orient:$('orient').value};
+    const r=await build(buf,o);
+    last=r;
+    fname=`${name}_книга-гармошка_${$('paper').value}`;
+    const url=URL.createObjectURL(new Blob([r.data],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}));
+    const a=$('dl');a.href=url;a.download=fname+'.xlsx';
+    $('stats').innerHTML=[[r.bands,'гармошек'],[r.sections,'листов в гармошке'],[r.pages,'листов всего'],[r.K1+' / '+r.K2,'столбцов данных: 1-й лист / остальные']].map(x=>`<div class="stat"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
+    $('how').innerHTML=`<li>Нажмите «Распечатать всю книгу». Гармошки выйдут подряд: сначала первая, потом вторая и так далее. Внизу каждого листа напечатано «Гармошка N из ${r.bands} · лист k из ${r.sections}».</li>
+<li>Склейте листы каждой гармошки скотчем слева направо в порядке номеров столбцов вверху. Подписи строк есть только на первом листе.</li>
+<li>Сложите склеенную полосу гармошкой по малиновым линиям. С обеих сторон от линии пустое поле не меньше поля переплёта, поэтому переплёт не заденет текст.</li>
+<li>Сложите все ${r.bands} гармошек в стопку по номерам. Левое поле каждой гармошки остаётся под переплёт.</li>`;
+    $('note').innerHTML=(r.widened?`<b>Внимание:</b> текст в ячейках ${r.widened.cells.join(', ')} слишком длинный: строка получается выше страницы и в печати он не поместится. Нужна ширина около ${r.widened.need} или сократите текст.<br>`:'')+(r.tip?`<b>Совет:</b> при ширине ${r.tip.w} в гармошке будет ${r.tip.sections} лист(а) вместо ${r.sections}.`:'');
+    $('note').style.display=$('note').innerHTML?'block':'none';
+    $('res').classList.add('on');
+  }catch(e){console.error(e);showErr('Не получилось обработать файл: '+e.message)}
+  b.disabled=false;b.textContent='Подготовить к печати';
+};
+</script>
+</body>
+</html>
